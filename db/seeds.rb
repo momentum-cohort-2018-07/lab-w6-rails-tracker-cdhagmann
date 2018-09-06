@@ -11,18 +11,21 @@ require 'faker'
 
 15.times do
   Creature.create!(
-    name: Faker::Pokemon.name,
+    name: Faker::ElderScrolls.creature,
     monster_type: ['aberration','beast','celestial','construct','dragon','elemental','fey','fiend','giant','humanoid','monstrosity','ooze','plant','undead'].sample(1)[0],
     size: ['tiny', 'small','medium', 'large', 'huge','gargantuan'].sample(1)[0],
     rating: 1 + rand(20)
     )
 end
 
-15.times do
-  Creature.create!(
-    name: Faker::Pokemon.name,
-    monster_type: ['aberration','beast','celestial','construct','dragon','elemental','fey','fiend','giant','humanoid','monstrosity','ooze','plant','undead'].sample(1)[0],
-    size: ['tiny', 'small','medium', 'large', 'huge','gargantuan'].sample(1)[0],
-    rating: 1 + rand(20)
+
+50.times do
+  Note.create!(
+    creature_id: 1 + rand(15),
+    body: Faker::Lorem.paragraph(4)
     )
 end
+
+
+
+

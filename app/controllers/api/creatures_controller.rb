@@ -16,7 +16,7 @@ class API::CreaturesController < ApplicationController
     @creature = Creature.new(creature_params)
 
     if @creature.save
-      render json: @creature, status: :created, location: @creature
+      render :show, status: :created, location: api_creature_path(@creature)
     else
       render json: @creature.errors, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class API::CreaturesController < ApplicationController
   # PATCH/PUT api/creatures/1
   def update
     if @creature.update(creature_params)
-      render json: @creature
+      render :show
     else
       render json: @creature.errors, status: :unprocessable_entity
     end
